@@ -31,12 +31,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "daphne",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "api",
 ]
 
 MIDDLEWARE = [
@@ -68,6 +70,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "livetracking.wsgi.application"
+
+ASGI_APPLICATION = "livetracking.asgi.application"
 
 
 # Database
