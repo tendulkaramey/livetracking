@@ -73,6 +73,15 @@ WSGI_APPLICATION = "livetracking.wsgi.application"
 
 ASGI_APPLICATION = "livetracking.asgi.application"
 
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+           "hosts": [("cache-livetracking", 6379)],
+        },
+    },
+}
+
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
