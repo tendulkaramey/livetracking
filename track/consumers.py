@@ -94,7 +94,7 @@ class TestConsumerGroupPeriodic(WebsocketConsumer):
             )
 
 #normal websocket 1:1 and also sends period messages.
-class TestConsumerBasic(AsyncWebsocketConsumer):
+class TestConsumerBasicAsync(AsyncWebsocketConsumer):
     async def connect(self):
         await self.accept()
 
@@ -123,3 +123,18 @@ class TestConsumerBasic(AsyncWebsocketConsumer):
             # Send periodic messages to the client
             await self.send(text_data=json.dumps({"message": "This is a periodic message from the server"}))
             await asyncio.sleep(15)
+
+#normal basic setup
+class TestConsumerBasic(WebsocketConsumer):
+    def connect(self):
+        self.accept()
+
+    def disconnect(self, close_code):
+        pass
+
+    def receive(self, text_data):
+        text_data_json = json.loads(text_data)
+        message = text_data_json["message"]
+        message = "sending now" + message
+
+        self.send(text_data=json.dumps({"message": message}))

@@ -5,5 +5,6 @@ from . import consumers
 websocket_urlpatterns = [
     path('ws/test/<str:name>/', consumers.TestConsumer.as_asgi()),
     path('ws/test-group/<str:name>/', consumers.TestConsumerGroupPeriodic.as_asgi()),
+    path('ws/test-basic-async/<str:name>/', consumers.TestConsumerBasicAsync.as_asgi()),
     path('ws/test-basic/<str:name>/', consumers.TestConsumerBasic.as_asgi()),
 ]
