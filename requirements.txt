@@ -4,3 +4,7 @@ sqlparse==0.4.4
 typing_extensions==4.10.0
 tzdata==2024.1
 djangorestframework==3.14.0
+django-channels==0.7.0
+daphne==4.1.0
+channels==4.0.0
+channels-redis==4.2.0

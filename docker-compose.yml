@@ -24,6 +24,13 @@ services:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=livetracking
 
+  cache-livetracking:
+    image: redis:7.2.3-alpine
+    restart: always
+    command: redis-server --loglevel warning
+    ports:
+      - "6379:6379"
+
   pgadmin:
     container_name: pgadmin4-livetracking
     image: dpage/pgadmin4
